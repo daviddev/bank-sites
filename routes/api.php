@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function () {
+    //bank sites
+    //Route::resource('bank-sites', 'BankSitesController');
 });
+
+Route::middleware('admin')->group(function () {
+    //bank sites
+    // Route::resource('users', 'UsersController');
+});
+Route::resource('users', 'UsersController');
+Route::resource('bank-sites', 'BankSitesController');
