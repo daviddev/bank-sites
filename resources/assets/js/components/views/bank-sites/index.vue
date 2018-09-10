@@ -28,7 +28,23 @@
                     <span style="margin-left: 10px">{{ scope.row.brand_name }}</span>
                 </template>
             </el-table-column>
-            <el-table-column label="Operations" align="center">
+            <el-table-column label="Domain Name" align="center">
+                <template slot-scope="scope">
+                    <span style="margin-left: 10px">{{ scope.row.domain_name }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="Company Name" align="center">
+                <template slot-scope="scope">
+                    <span style="margin-left: 10px">{{ scope.row.company_name }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="Company Address" align="center">
+                <template slot-scope="scope">
+                    <span style="margin-left: 10px">{{ scope.row.company_address }}</span>
+                </template>
+            </el-table-column>
+
+            <el-table-column label="Operations" align="center" v-if="roleUser === 2">
                 <template slot-scope="scope">
                     <el-button size="mini" @click="openModalUpdate(scope.$index, scope.row)">Edit</el-button>
                     <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
@@ -39,6 +55,8 @@
         <modal-create
             :modal.sync="showModalCreate"
             @close="closeModalCreate"
+            @updateBankSites="getAllBankSites"
+            :customer-id="customerId"
         />
 
         <modal-update
@@ -59,13 +77,15 @@
             return {
                 showModalCreate: false,
                 showModalUpdate: false,
-                bankSites: []
+                bankSites: [],
+                // customerId: user.role_id === 2 ? user.id : null
             }
         },
         components: {
             ModalCreate,
             ModalUpdate
         },
+        props: ['roleUser', 'customerId'],
         created () {
             this.getAllBankSites()
         },
@@ -87,9 +107,9 @@
                 console.log(index, row);
             },
             getAllBankSites() {
-                apiBankSites.get()
+                apiBankSites.get(this.customerId)
                     .then(response => {
-                        this.bankSites = response.data
+                        this.bankSites = response.data;
                     })
                     .catch(e => {
                         console.error(e)

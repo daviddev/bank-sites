@@ -12,7 +12,7 @@
                 <el-menu-item index="2-1">
                     <a class="dropdown-item" href="/logout"
                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                       document.getElementById('logout-form').submit();">
                         Logout
                     </a>
 

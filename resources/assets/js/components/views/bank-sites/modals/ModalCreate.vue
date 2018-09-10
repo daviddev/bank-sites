@@ -6,7 +6,7 @@
         <span slot="title">
             <h4>Create Bank Site</h4>
         </span>
-        <item-form ref="itemForm" @closeModal="close"></item-form>
+        <item-form ref="itemForm" @closeModal="close" :customer-id="customerId"></item-form>
         <span slot="footer" class="dialog-footer">
             <div class="text-center">
                 <el-button @click="$emit('close')">Close</el-button>
@@ -29,7 +29,8 @@
             modal: {
                 type: Boolean,
                 required: true
-            }
+            },
+            customerId: null
         },
         methods: {
             update(show) {
@@ -40,6 +41,7 @@
             },
             close() {
                 this.$emit('close');
+                this.$parent.getAllBankSites();
             }
         }
     }

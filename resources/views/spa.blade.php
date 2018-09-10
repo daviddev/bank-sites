@@ -23,9 +23,12 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body>
-        <div id="app">
-            <app></app>
+    <body class="body">
+        <div id="app" class="body">
+            <app class="body"></app>
         </div>
+        <script>
+            user = {!! auth()->user() !!}
+        </script>
     </body>
 </html>

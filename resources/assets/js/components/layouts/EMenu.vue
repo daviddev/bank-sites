@@ -1,6 +1,6 @@
 <template>
         <el-menu
-                default-active="2"
+                default-active="1"
                 class="el-menu-vertical-demo"
                 @open="handleOpen"
                 @close="handleClose"
@@ -8,34 +8,11 @@
                 text-color="#fff"
                 active-text-color="#ffd04b" style="height: 100%">
 
-            <el-submenu index="1">
-                <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>Navigator One</span>
-                </template>
-                <el-menu-item-group title="Group One">
-                    <el-menu-item index="1-1">item one</el-menu-item>
-                    <el-menu-item index="1-2">item one</el-menu-item>
-                </el-menu-item-group>
-                <el-menu-item-group title="Group Two">
-                    <el-menu-item index="1-3">item three</el-menu-item>
-                </el-menu-item-group>
-                <el-submenu index="1-4">
-                    <template slot="title">item four</template>
-                    <el-menu-item index="1-4-1">item one</el-menu-item>
-                </el-submenu>
-            </el-submenu>
-            <el-menu-item index="2">
+            <el-menu-item index="1">
                 <i class="el-icon-menu"></i>
-                <span>Navigator Two</span>
-            </el-menu-item>
-            <el-menu-item index="3" disabled>
-                <i class="el-icon-document"></i>
-                <span>Navigator Three</span>
-            </el-menu-item>
-            <el-menu-item index="4">
-                <i class="el-icon-setting"></i>
-                <span>Navigator Four</span>
+                <span @click="goToLink('dashboard')">
+                        Dashboard
+                </span>
             </el-menu-item>
         </el-menu>
 </template>
@@ -49,6 +26,9 @@
             },
             handleClose(key, keyPath) {
                 console.log(key, keyPath);
+            },
+            goToLink(routName) {
+                this.$router.push({name: routName});
             }
         }
     }
