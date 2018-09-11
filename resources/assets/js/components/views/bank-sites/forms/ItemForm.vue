@@ -270,7 +270,7 @@
                     ftpSername: null,
                     ftpPassword: null,
                     port: null,
-                    sftp: null,
+                    sftp: '0',
                     // finished: null
                 },
 
