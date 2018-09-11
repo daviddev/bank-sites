@@ -65409,7 +65409,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 ftpSername: null,
                 ftpPassword: null,
                 port: null,
-                sftp: null
+                sftp: '0'
                 // finished: null
             }
 
