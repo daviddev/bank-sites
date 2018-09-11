@@ -36,7 +36,7 @@ class BankSiteRequest extends FormRequest
             'cs_phone' => 'required',
             'cs_address' => 'required',
             'cs_city' => 'required',
-            'cs_state' => 'required',
+            'cs_state' => 'required',  
             'cs_zip' => 'required',
             'cs_email' => 'required',
             'returns_address' => 'required',
