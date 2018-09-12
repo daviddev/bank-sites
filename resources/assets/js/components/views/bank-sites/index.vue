@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-table :data="bankSites" style="width: 100%">
+        <el-table :data="bankSites" style="width: 100%" :empty-text="emptyTableText">
             <el-table-column label="ID" align="center">
                 <template slot-scope="scope">
                     <!--<i class="el-icon-time"></i>-->
@@ -75,6 +75,7 @@
         name: "bank-sites",
         data() {
             return {
+                emptyTableText: 'You have no bank sites',
                 showModalCreate: false,
                 showModalUpdate: false,
                 bankSites: [],

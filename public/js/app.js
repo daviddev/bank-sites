@@ -63863,7 +63863,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -63956,6 +63956,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "bank-sites",
     data: function data() {
         return {
+            emptyTableText: 'You have no bank sites',
             showModalCreate: false,
             showModalUpdate: false,
             bankSites: []
@@ -68707,7 +68708,10 @@ var render = function() {
     [
       _c(
         "el-table",
-        { staticStyle: { width: "100%" }, attrs: { data: _vm.bankSites } },
+        {
+          staticStyle: { width: "100%" },
+          attrs: { data: _vm.bankSites, "empty-text": _vm.emptyTableText }
+        },
         [
           _c("el-table-column", {
             attrs: { label: "ID", align: "center" },
