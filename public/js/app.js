@@ -65238,13 +65238,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 straightSaleShippingPrice: null,
                 ingredients: null,
                 domainReg: null,
-                existingArtwork: null,
-                hasHosting: null,
+                existingArtwork: 0,
+                hasHosting: 0,
                 host: null,
                 ftpSername: null,
                 ftpPassword: null,
                 port: null,
-                sftp: '0'
+                sftp: 0
                 // finished: null
             }
         };
@@ -68925,8 +68925,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             technicalData: {
                 ingredients: null,
                 domainReg: null,
-                existingArtwork: null,
-                hasHosting: null,
+                existingArtwork: 0,
+                hasHosting: 0,
                 host: null,
                 ftpSername: null,
                 ftpPassword: null,
@@ -69261,7 +69261,7 @@ var render = function() {
                 [
                   _c(
                     "el-form-item",
-                    { attrs: { label: "SFTP", prop: "sftp" } },
+                    { ref: "sftp", attrs: { label: "SFTP", prop: "sftp" } },
                     [
                       _c(
                         "el-select",
@@ -69280,12 +69280,7 @@ var render = function() {
                             attrs: { label: "Yes", value: 1 }
                           }),
                           _vm._v(" "),
-                          _c("el-option", {
-                            attrs: {
-                              label: "No",
-                              value: _vm.technicalData.sftp
-                            }
-                          })
+                          _c("el-option", { attrs: { label: "No", value: 0 } })
                         ],
                         1
                       )

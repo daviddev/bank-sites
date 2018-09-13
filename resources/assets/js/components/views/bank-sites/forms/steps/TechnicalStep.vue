@@ -56,10 +56,10 @@
             </el-row>
             <el-row :gutter="20">
                 <el-col :span="6">
-                    <el-form-item label="SFTP" prop="sftp">
+                    <el-form-item label="SFTP" prop="sftp" ref="sftp">
                         <el-select v-model="technicalData.sftp" placeholder="Type">
                             <el-option label="Yes" :value="1"></el-option>
-                            <el-option label="No" :value="technicalData.sftp"></el-option>
+                            <el-option label="No" :value="0"></el-option>
                         </el-select>
                     </el-form-item>
                 </el-col>
@@ -91,8 +91,8 @@
                 technicalData: {
                     ingredients: null,
                     domainReg: null,
-                    existingArtwork: null,
-                    hasHosting: null,
+                    existingArtwork: 0,
+                    hasHosting: 0,
                     host: null,
                     ftpSername: null,
                     ftpPassword: null,

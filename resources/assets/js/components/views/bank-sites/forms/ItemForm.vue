@@ -89,13 +89,13 @@
                     straightSaleShippingPrice: null,
                     ingredients: null,
                     domainReg: null,
-                    existingArtwork: null,
-                    hasHosting: null,
+                    existingArtwork: 0,
+                    hasHosting: 0,
                     host: null,
                     ftpSername: null,
                     ftpPassword: null,
                     port: null,
-                    sftp: '0',
+                    sftp: 0,
                     // finished: null
                 },
             };
