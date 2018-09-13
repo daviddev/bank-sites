@@ -2,17 +2,16 @@
     <el-dialog
             width="70%" top="5vh"
             :visible="modal"
-            @update:visible="update">
+            @update:visible="close">
         <span slot="title">
             <h4>Create Bank Site</h4>
         </span>
-        <item-form ref="itemForm" @closeModal="close" :customer-id="customerId"></item-form>
-        <span slot="footer" class="dialog-footer">
-            <div class="text-center">
-                <el-button @click="$emit('close')">Close</el-button>
-                <el-button type="primary" @click="submit">Save</el-button>
-            </div>
-        </span>
+        <item-form
+                ref="itemForm"
+                :customer-id="customerId"
+                @form-submitted="submitted"
+                @closeModal="close"
+        />
     </el-dialog>
 </template>
 
@@ -33,15 +32,12 @@
             customerId: null
         },
         methods: {
-            update(show) {
-                this.$emit('update:modal', show)
-            },
-            submit() {
-                this.$refs.itemForm.submitForm();
-            },
             close() {
                 this.$emit('close');
-                this.$parent.getAllBankSites();
+            },
+            submitted() {
+                this.$emit('submitted')
+                this.close()
             }
         }
     }

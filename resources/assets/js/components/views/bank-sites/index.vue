@@ -53,14 +53,19 @@
         </el-table>
 
         <modal-create
-            :modal.sync="showModalCreate"
-            @close="closeModalCreate"
-            @updateBankSites="getAllBankSites"
+            v-if="showModalCreate"
+            :modal="showModalCreate"
             :customer-id="customerId"
+            @submitted="getAllBankSites"
+            @close="closeModalCreate"
         />
 
         <modal-update
-            :modal.sync="showModalUpdate"
+            v-if="showModalUpdate"
+            :modal="showModalUpdate"
+            :bank-site="bankSite"
+            :customer-id="customerId"
+            @submitted="getAllBankSites"
             @close="closeModalUpdate"
         />
     </div>
@@ -79,7 +84,7 @@
                 showModalCreate: false,
                 showModalUpdate: false,
                 bankSites: [],
-                // customerId: user.role_id === 2 ? user.id : null
+                bankSite: {}
             }
         },
         components: {
@@ -91,21 +96,22 @@
             this.getAllBankSites()
         },
         methods: {
-            openModalCreate(index, row) {
+            openModalCreate() {
                 this.showModalCreate = true
             },
             openModalUpdate(index, row) {
-                this.showModalUpdate = true
-                console.log(index, row);
+                this.showModalUpdate = true;
+                this.bankSite = row;
             },
             closeModalCreate() {
                 this.showModalCreate = false
             },
             closeModalUpdate() {
-                this.showModalUpdate = false
+                this.showModalUpdate = false;
+                this.bankSite = {}
             },
             handleDelete(index, row) {
-                console.log(index, row);
+                // console.log(index, row);
             },
             getAllBankSites() {
                 apiBankSites.get(this.customerId)

@@ -2,23 +2,25 @@
     <el-dialog
             width="70%" top="5vh"
             :visible="modal"
-            @update:visible="update">
+            @update:visible="close">
         <span slot="title">
             <h4>Update Bank Site</h4>
         </span>
-        <span>This is a message</span>
-        <span slot="footer" class="dialog-footer">
-            <div class="text-center">
-                <el-button @click="update(false)">Close</el-button>
-                <el-button type="primary">Save</el-button>
-            </div>
-        </span>
+        <item-form
+                ref="itemForm"
+                :customer-id="customerId"
+                :bank-site="bankSite"
+                @form-submitted="submitted"
+                @closeModal="close"
+        />
     </el-dialog>
 </template>
 
 <script>
+    import ItemForm from "../forms/ItemForm";
     export default {
         name: "bank-sites-modal-update",
+        components: {ItemForm},
         data() {
             return {}
         },
@@ -26,11 +28,17 @@
             modal: {
                 type: Boolean,
                 required: true
-            }
+            },
+            bankSite: {},
+            customerId: null
         },
         methods: {
-            update(show) {
-                this.$emit('update:modal', show)
+            close() {
+                this.$emit('close')
+            },
+            submitted() {
+                this.$emit('submitted')
+                this.close()
             }
         }
     }

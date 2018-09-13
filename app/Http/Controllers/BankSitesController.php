@@ -84,7 +84,14 @@ class BankSitesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $bankSite = BankSite::findOrFail($id);
+        $updated = $bankSite->update($data);
+
+        if ($updated) {
+            return response()->json($data);
+        }
+        return response()->json(['success' => false]);
     }
 
     /**
